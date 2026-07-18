@@ -1,24 +1,20 @@
-# Hero-1 — ampy.se startsidans section 1 (designprototyp, r3)
+# Hero-1 — ampy.se startsidans section 1 (riktning B, r4)
 
-Två riktningar med sajtens nya header ovanför, en enda CTA, en färg per textelement. **Granska live:**
+**Riktning B (Evify-replikan) vald av ägaren — A är borttagen.** En sida, tre bakgrundsbilder att
+A/B/C-testa via växlaren nere till vänster (gransknings-chrome, ej del av designen):
 
-| Riktning | Sida | Idén |
-|---|---|---|
-| **A · Kortet** ⭐ svärm-rek | [`index.html`](https://julius447.github.io/Hero-1/) | Flytande vitt kort, foto höger — förtroende/verifierbarhet i lässtråket |
-| **B · Evify-replikan** | [`v2.html`](https://julius447.github.io/Hero-1/v2.html) | Inramad foto-hero (vit safety line), vit text, proof i bildens fot — Evify-struktur med vår bild/copy/siffror |
+- **Bild 1 · Trähuset i blå timme** ⭐ rek — https://julius447.github.io/Hero-1/?img=1
+- **Bild 2 · Vita bungalowen** — https://julius447.github.io/Hero-1/?img=2
+- **Bild 3 · Kusthuset i pastell** — https://julius447.github.io/Hero-1/?img=3
 
-Växlaren nere i hörnet (A/B) är gransknings-chrome, inte del av designen.
-
-## Dokument
-- [`docs/ANALYS.md`](docs/ANALYS.md) — first-principles-granskningen (3 oberoende agenter: UX-craft ·
-  CRO · kreativ strateg), betyg per detalj, applicerade fixar, ägarbeslut, addera/ta bort, A/B-backlog.
-- [`docs/copy-forslag.md`](docs/copy-forslag.md) — H1+paragraf-analysen och de 3 förslagen att ta ställning till.
-
-## Läge
-- CTA: "Kostnadsfri rådgivning", gradient #55ff9a→#5eb1bf (samplad ur ägarens referensbild), mörk text,
-  ↗-pil; naturlig bredd desktop / full bredd mobil med högerställd pil.
-- Copy i bygget = nuvarande par (byts när ägaren valt förslag i copy-forslag.md).
-- Proof: "5,0 på Google" (länkad; ⚑ bekräfta aktuell siffra före Bricks) + "Över 3 000 installationer
-  per år" (owner-confirmed). "Hela Sverige" tillåtet per ägardirektiv 2026-07-18.
-- Header = ägarens Header.zip v5 (inlinad; produktbilder + megamenyer + Evify-mobillåda fungerar).
-- B kräver högre fotoupplösning (~2000px+) för skarp produktion; A klarar 1000px-filen.
+## Läge (r4, ägarfeedback inarbetad)
+- Copy LÅST: H1 "El i hemmet, gjort ordentligt." · P "Våra egna behöriga elektriker hjälper dig i hela
+  Sverige, med allt från elfel och elcentraler till laddbox och batterilagring."
+- Paragraf i Evify-storlek (→22px desktop, 17px mobil); CTA en gnutta mindre (särskilt bredden), mobil =
+  vänsterställd, ej full bredd.
+- Proof-raden ombyggd: G-ikon + "5,0 på Google" tight linjerat (flex-gapet som skapade hålet är borta),
+  tunn "|"-avdelare, mobil = tvåraders-stack med hårfin horisontell avdelare.
+- Bakgrunderna uppskalade till 2000×1654 (Lanczos + skärpa). ⚑ AI-4K-upscale (Higgsfield) är
+  kredit-gated (2 krediter/bild, 1,34 kvar) — filerna byts rakt av när krediter finns.
+- Header = ägarens Header.zip v5. Responsivt verifierat 1440 / 1024 / 768 / 390.
+- docs/ANALYS.md + docs/copy-forslag.md = förra rundans granskning (copy-beslutet är nu taget: förslag 1-basen utan pris-meningen).
