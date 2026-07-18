@@ -59,7 +59,8 @@ img { max-width: 100%; display: block; }
 .btn-cta {
   display: inline-flex;
   align-items: center;
-  gap: 52px;
+  align-self: flex-start;
+  gap: 28px;
   margin-top: 34px;
   padding: 21px 30px 21px 38px;
   border-radius: 26px;
@@ -76,6 +77,10 @@ img { max-width: 100%; display: block; }
 .btn-cta:active { transform: scale(0.985); }
 .btn-cta svg { flex: 0 0 auto; transition: transform 0.22s ease; }
 .btn-cta:hover svg { transform: translate(2px, -2px); }
+.btn-cta:focus-visible { outline: 3px solid var(--apmidnight-blue); outline-offset: 3px; }
+@media (max-width: 992px) {
+  .btn-cta { align-self: stretch; justify-content: space-between; gap: 16px; }
+}
 
 /* ---------- shared: proof row ---------- */
 
@@ -102,13 +107,14 @@ img { max-width: 100%; display: block; }
 .hero__proof .divider { width: 1px; height: 18px; background: rgba(9, 11, 50, 0.16); }
 .hero__proof .vol { font-weight: 500; color: rgba(30, 30, 30, 0.78); }
 .hero__proof .vol strong { font-weight: 700; color: var(--apmidnight-blue); }
+@media (max-width: 560px) { .hero__proof .divider { display: none; } }
 
 /* ============================================================
    A — "Kortet, evolverat" (floating card, photo right)
    ============================================================ */
 
 .va__section {
-  min-height: calc(100svh - var(--header-h, 7.6rem));
+  min-height: calc(94svh - var(--header-h, 7.6rem));
   display: flex;
   align-items: center;
   padding: clamp(16px, 2.6vw, 36px) clamp(16px, 3vw, 40px) clamp(24px, 3.4vw, 48px);
@@ -153,7 +159,7 @@ img { max-width: 100%; display: block; }
   .va__text { padding: 36px 24px 8px; }
   .va__section .hero__proof { margin-bottom: 4px; }
   .va__media { min-height: 300px; margin: 16px 0 0; }
-  .va__media img { inset: 0 18px 20px 18px; width: calc(100% - 36px); height: calc(100% - 20px); border-radius: 20px; }
+  .va__media img { inset: 0 24px 22px 24px; width: calc(100% - 48px); height: calc(100% - 22px); border-radius: 20px; }
 }
 
 /* ============================================================
@@ -187,7 +193,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(98deg, rgba(9, 11, 50, 0.66) 0%, rgba(9, 11, 50, 0.38) 36%, rgba(9, 11, 50, 0.06) 62%, rgba(9, 11, 50, 0.02) 100%),
+    linear-gradient(98deg, rgba(9, 11, 50, 0.68) 0%, rgba(9, 11, 50, 0.46) 42%, rgba(9, 11, 50, 0.12) 66%, rgba(9, 11, 50, 0.02) 100%),
     linear-gradient(0deg, rgba(9, 11, 50, 0.38) 0%, rgba(9, 11, 50, 0) 26%);
 }
 
@@ -202,7 +208,8 @@ img { max-width: 100%; display: block; }
   max-width: 720px;
 }
 .vb2__content .hero__h1 { color: #ffffff; }
-.vb2__content .hero__sub { color: rgba(255, 255, 255, 0.88); }
+.vb2__content .hero__sub { color: rgba(255, 255, 255, 0.92); font-weight: 400; text-shadow: 0 1px 12px rgba(9, 11, 50, 0.35); }
+.vb2__section .btn-cta { box-shadow: 0 12px 32px -10px rgba(9, 11, 50, 0.45); }
 
 .vb2__proof {
   position: absolute;
@@ -245,7 +252,7 @@ img { max-width: 100%; display: block; }
   }
   .vb2__content {
     justify-content: flex-start;
-    padding-top: 22vh;
+    padding-top: 16vh;
     max-width: none;
   }
   .vb2__proof {
