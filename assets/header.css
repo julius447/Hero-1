@@ -1,0 +1,257 @@
+/* ============================================================================
+   AMPY HEADER REDESIGN v5 — feedback r3.
+   1  Menu background = site bg #f5f9ff (HemSol), grey separator line kept.
+   2  Tjänster: expert card removed → 4 balanced columns, one-line descriptions.
+   3  Produkter: icon → generated product photo (Higgsfield/Nano Banana Pro).
+   5  Produkter: Guider & verktyg pulled closer (kill right whitespace).
+   6  Lösningar: 4 cards incl. Privatperson; balanced copy.
+   7  CTA: SOLID teal (no gradient), pulse dot kept, hover = darker teal, no move.
+   8  Mobile: Evify pattern — "MENY" eyebrow, flat accordions, "Ring en expert".
+   Tokens = Ampy production. Prototype loads Outfit via Google Fonts (prod self-hosts).
+   ============================================================================ */
+:root{
+  --ap-navy:#090b32; --ap-teal:#00a991; --ap-teal-hover:#008d79;
+  --ap-green:#39c281; --ap-mint:#55ff9a; --ap-offwhite:#f5f9ff; --ap-white:#fff;
+  --ink:#0f123c; --ink-muted:#565e82; --ink-faint:#6a7190;
+  --line:rgba(15,18,60,.10); --line-soft:rgba(15,18,60,.06);
+  --hairline:#dbe4f0;                    /* light HemSol-style separator on #f5f9ff */
+  --font:"Outfit",system-ui,-apple-system,sans-serif;
+  --r-sm:.8rem; --r-md:1.4rem; --r-lg:2rem; --r-btn:1.5rem;
+  --t:.2s ease-out;
+  --header-h:7.6rem; --wrap:2.8rem; --container:128rem;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{font-size:62.5%;scrollbar-gutter:stable}
+body{font-family:var(--font);font-weight:300;color:var(--ink);background:var(--ap-offwhite);
+  -webkit-font-smoothing:antialiased;line-height:1.5;font-size:1.6rem;padding-top:var(--header-h)}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+body.drawer-open{overflow:hidden}
+:focus-visible{outline:3px solid var(--ap-navy);outline-offset:2px;border-radius:.6rem}
+
+/* ---- page dim ---- */
+.dim{position:fixed;inset:0;background:rgba(9,11,50,.20);opacity:0;pointer-events:none;
+  transition:opacity var(--t);z-index:60}
+body.menu-open .dim,body.drawer-open .dim{opacity:1;pointer-events:auto}
+
+/* ============================================================================
+   HEADER — full-width bar, page-coloured, content aligned to container
+   ============================================================================ */
+.hdr{position:fixed;top:0;left:0;width:100%;height:var(--header-h);z-index:100;
+  background:var(--ap-offwhite);
+  border-bottom:1px solid var(--hairline);
+  box-shadow:0 4px 14px -10px rgba(15,18,60,.14)}   /* thin line + soft float (HemSol) */
+/* when a mega is open the bar + sheet read as one surface — drop the seam */
+body.menu-open .hdr{border-bottom-color:transparent}
+.hdr__in{max-width:var(--container);margin:0 auto;height:100%;display:flex;align-items:center;
+  padding-left:max(var(--wrap),env(safe-area-inset-left));
+  padding-right:max(var(--wrap),env(safe-area-inset-right))}
+.hdr__logo{flex:0 0 auto;display:flex;align-items:center}
+.hdr__logo img{width:130px;height:auto}
+
+/* ---- primary nav ---- */
+.nav{flex:1 1 auto;display:flex;justify-content:center;gap:1rem;height:100%}
+.nav__item{height:100%}
+.nav__link{display:inline-flex;align-items:center;gap:.8rem;height:100%;padding:0 2.6rem;
+  font-size:1.8rem;font-weight:500;color:var(--ink);
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  transition:background var(--t),border-color var(--t)}
+.nav__link .chev{width:1.3rem;height:1.3rem;opacity:.55;transition:transform var(--t),opacity var(--t)}
+.nav__item.open .nav__link{background:rgba(0,169,145,.09);border-color:var(--ap-teal)}
+.nav__item.open .chev{transform:rotate(180deg);opacity:1}
+/* hover-only cues gated so a tap on iPad doesn't leave them stuck */
+@media (hover:hover) and (pointer:fine){
+  .nav__item:hover .nav__link{background:rgba(0,169,145,.09);border-color:var(--ap-teal)}
+  .nav__item:hover .chev{transform:rotate(180deg);opacity:1}
+}
+
+/* ---- CTA: solid teal + pulse dot, hover darker, no movement ---- */
+.hdr__right{flex:0 0 auto;margin-left:auto;display:flex;align-items:center;gap:1.6rem}
+.cta{position:relative;display:inline-flex;align-items:center;height:4.8rem;padding:0 2.6rem;
+  border-radius:var(--r-btn);font-size:1.6rem;font-weight:600;color:#fff;
+  background:var(--ap-teal);box-shadow:0 .4rem 1.2rem -.5rem rgba(0,169,145,.5);
+  transition:background var(--t)}
+.cta:hover{background:var(--ap-teal-hover)}
+.cta::after{content:"";width:1rem;height:1rem;border-radius:50%;background:var(--ap-mint);
+  position:absolute;bottom:-.5rem;left:calc(50% - .5rem);
+  animation:cta_dot 1.6s ease-in-out infinite}
+@keyframes cta_dot{
+  0%{box-shadow:0 0 rgba(85,255,154,.4)}
+  50%{box-shadow:0 0 3px 6px rgba(85,255,154,.55)}
+  100%{box-shadow:0 0 6px 9px rgba(85,255,154,0)}}
+
+/* burger → HemSol X-plate */
+.burger{display:none;position:relative;width:4.6rem;height:4.6rem;flex-direction:column;
+  justify-content:center;align-items:center;gap:.5rem}
+.burger span:not(.burger__close){display:block;width:2.4rem;height:.3rem;border-radius:3px;
+  background:var(--ap-navy);transition:opacity var(--t)}
+.burger .burger__close{position:absolute;inset:0;border-radius:var(--r-md);background:#e7ecf4;
+  display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;
+  transition:opacity var(--t)}
+.burger__close svg{width:1.8rem;height:1.8rem;color:#3c4260}
+body.drawer-open .burger span:not(.burger__close){opacity:0}
+body.drawer-open .burger .burger__close{opacity:1;animation:scale_in .3s ease-out}
+@keyframes scale_in{0%{transform:scale(.9)}100%{transform:scale(1)}}
+
+/* ============================================================================
+   MEGA MENUS — page-coloured full-width sheet
+   ============================================================================ */
+.mega{position:fixed;left:0;right:0;top:var(--header-h);z-index:90;
+  background:var(--ap-offwhite);border-bottom:1px solid var(--hairline);
+  box-shadow:0 22px 36px -28px rgba(15,18,60,.20);
+  max-height:calc(100vh - var(--header-h));max-height:calc(100dvh - var(--header-h));
+  overflow-y:auto;overscroll-behavior:contain;
+  visibility:hidden;opacity:0;pointer-events:none;
+  transition:opacity var(--t),visibility 0s .2s}
+.nav__item.open .mega{visibility:visible;opacity:1;pointer-events:auto;
+  transition:opacity var(--t),visibility 0s}
+.mega__in{max-width:var(--container);margin:0 auto;padding:3.6rem var(--wrap);
+  display:flex;flex-wrap:wrap;row-gap:3.2rem}
+
+/* --- Tjänster: 4 balanced columns --- */
+.mega--services .mega__in{display:grid;grid-template-columns:repeat(4,1fr);column-gap:0}
+.mcol{min-width:0;padding-right:2.4rem}
+.mcol+.mcol{padding-left:2.4rem;border-left:1px solid var(--line)}
+.mcol__title{display:flex;align-items:center;gap:1rem;font-size:1.8rem;font-weight:600;color:var(--ink);
+  padding:.2rem 0 .2rem;margin-bottom:1.2rem}
+.mcol__title img{width:2.2rem;height:2.2rem;object-fit:contain}
+a.mcol__title:hover{color:var(--ap-teal)}
+.mitem{display:block;font-size:1.55rem;font-weight:400;color:var(--ink-muted);
+  padding:.7rem 1.1rem;border-radius:var(--r-sm);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  transition:color var(--t),background var(--t)}
+.mitem:hover{color:var(--ap-teal);background:rgba(0,169,145,.06)}
+.mitem span{display:block;font-size:1.35rem;color:var(--ink-faint);margin-top:.1rem;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mitem:hover span{color:var(--ink-muted)}
+
+/* --- Produkter: dominant product-photo tiles + petite guides (pulled in) --- */
+/* centered cluster (owner-approved) — balanced whitespace, Guider sits by the tiles */
+.mega--products .mega__in{max-width:104rem;align-items:center}
+.pzone{flex:1 1 60%;min-width:0;display:flex;flex-direction:column;gap:1.2rem}
+.ptile{display:flex;align-items:center;gap:2rem;padding:1.4rem;border-radius:var(--r-lg);
+  transition:background var(--t)}
+.ptile:hover{background:rgba(0,169,145,.06)}
+.ptile__img{flex:0 0 auto;width:17rem;height:12.4rem;border-radius:var(--r-md);
+  background:var(--ap-white);border:1px solid var(--line-soft);overflow:hidden;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 .4rem 1.2rem -.6rem rgba(15,18,60,.14)}
+.ptile__img img{width:100%;height:100%;object-fit:cover}
+.ptile__t strong{display:block;font-size:2.1rem;font-weight:600;color:var(--ink)}
+.ptile__t em{display:block;font-style:normal;font-size:1.5rem;color:var(--ink-muted);margin-top:.3rem}
+.ptile .go{margin-left:auto;color:var(--ap-teal);opacity:.35;font-size:2rem;
+  transition:opacity var(--t),transform var(--t)}
+.ptile:hover .go{opacity:1;transform:translateX(.3rem)}
+.gzone{flex:0 0 26rem;border-left:1px solid var(--line);padding-left:3rem;margin-left:2.4rem;
+  display:flex;flex-direction:column;justify-content:center}
+.gzone__label{font-size:1.25rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-faint);margin-bottom:1.2rem}
+.gitem{display:block;font-size:1.6rem;color:var(--ink-muted);padding:.9rem 0;transition:color var(--t)}
+.gitem:hover{color:var(--ap-teal)}
+
+/* --- Lösningar: 4 chic cards --- */
+.mega--solutions .mega__in{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+  padding-top:4rem;padding-bottom:4rem}
+.lcard{position:relative;border-radius:var(--r-lg);overflow:hidden;min-height:23rem;
+  display:flex;align-items:flex-end;box-shadow:0 .8rem 2.4rem -1rem rgba(15,18,60,.25);
+  transition:transform .25s ease-out,box-shadow .25s ease-out}
+.lcard:hover{transform:translateY(-.4rem);box-shadow:0 1.6rem 3.6rem -1.2rem rgba(15,18,60,.35)}
+.lcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .45s ease-out}
+.lcard:hover img{transform:scale(1.05)}
+.lcard::before{content:"";position:absolute;inset:0;opacity:.92;
+  background:linear-gradient(183deg,rgba(9,11,50,.04) 30%,rgba(9,11,50,.84));z-index:1;transition:opacity var(--t)}
+.lcard:hover::before{opacity:1}
+.lcard__t{position:relative;z-index:2;padding:2rem;width:100%}
+.lcard__row{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem}
+.lcard h4{font-size:2rem;font-weight:600;color:#fff;letter-spacing:-.01em;text-shadow:0 1px 6px rgba(9,11,50,.5)}
+.lcard p{font-size:1.4rem;color:#fff;margin-top:.3rem;font-weight:400;line-height:1.35;text-shadow:0 1px 5px rgba(9,11,50,.55)}
+.lcard .go{flex:0 0 auto;width:3.6rem;height:3.6rem;border-radius:50%;background:rgba(255,255,255,.16);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.7rem;
+  transition:background var(--t),transform var(--t)}
+.lcard:hover .go{background:var(--ap-teal);border-color:transparent;transform:translateX(.3rem)}
+
+/* ============================================================================
+   MOBILE — Evify pattern: MENY eyebrow, flat accordions, "Ring en expert"
+   ============================================================================ */
+.drawer{position:fixed;top:var(--header-h);right:0;z-index:95;
+  height:calc(100vh - var(--header-h));height:calc(100dvh - var(--header-h));
+  width:min(100%,44rem);background:var(--ap-white);
+  transform:translateX(100%);opacity:0;pointer-events:none;visibility:hidden;
+  transition:transform var(--t),opacity var(--t),visibility 0s var(--t);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  display:flex;flex-direction:column}
+body.drawer-open .drawer{transform:translateX(0);opacity:1;pointer-events:auto;visibility:visible;
+  transition:transform var(--t),opacity var(--t),visibility 0s}
+/* --- Evify clone: 20px content inset, inset hairlines, light eyebrows --- */
+.drawer__eyebrow{font-size:1.1rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;
+  color:#73757d;padding:3.2rem 2rem .8rem}
+.drawer__list{padding:0 2rem}
+
+.acc__head{width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem 0;font-size:1.9rem;font-weight:400;color:#14151a;text-align:left;
+  border-bottom:1px solid #d5d5dc}
+.acc__head .chev{width:1.6rem;height:1.6rem;color:currentColor;opacity:.65;transition:transform var(--t)}
+.acc.open>.acc__head .chev{transform:rotate(180deg);opacity:1}
+.acc__body{max-height:0;overflow:hidden;transition:max-height .28s ease-out}
+
+/* Tjänster sub-accordions — Evify product-row treatment (icon + 18px/500) */
+.acc--sub{padding-left:1.4rem}
+.acc--sub .acc__head{padding:1.5rem 0;font-size:1.8rem;font-weight:500;color:#14151a;
+  border-bottom:1px solid rgba(0,0,0,.2)}
+.acc--sub .acc__head .ttl{display:flex;align-items:center;gap:1.4rem}
+.acc--sub .acc__head .ttl img{width:2.4rem;height:2.4rem;object-fit:contain}
+/* leaf links — Evify guide sub-links (16px/400, inset hairline) */
+.m-item{display:block;padding:1rem 0 1rem 3.8rem;font-size:1.6rem;font-weight:400;color:#14151a;
+  border-bottom:1px solid #d5d5dc}
+.m-item:active{background:rgba(0,169,145,.06);color:var(--ap-teal)}
+.m-item span{display:block;font-size:1.3rem;color:var(--ink-faint)}
+
+/* Produkter mobile — Evify: product rows (thumb + 18px/500 name) then guides */
+.m-prodwrap{padding-left:1.4rem}
+.m-prod{display:flex;align-items:center;gap:1.6rem;padding:1.6rem 0;
+  border-bottom:1px solid rgba(0,0,0,.2)}
+.m-prod__img{flex:0 0 auto;width:5rem;height:5rem;border-radius:1rem;overflow:hidden;
+  background:var(--ap-white);border:1px solid var(--line-soft)}
+.m-prod__img img{width:100%;height:100%;object-fit:cover}
+.m-prod__name{font-size:1.8rem;font-weight:500;color:#14151a}
+.m-prod__arr{margin-left:auto;width:1.5rem;height:1.5rem;color:#9a9aa0;flex:0 0 auto}
+.m-sub-label{display:block;font-size:1.1rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;
+  color:#73757d;margin:3.2rem 0 .8rem}
+.m-sub{display:block;padding:1rem 0;font-size:1.6rem;font-weight:400;color:#14151a;
+  border-bottom:1px solid #d5d5dc}
+.m-sub:active{color:var(--ap-teal)}
+
+/* bottom section — flows under the list (Evify), CTA centred */
+.drawer__foot{margin-top:1.2rem;padding:2rem 2rem calc(2.4rem + env(safe-area-inset-bottom))}
+.drawer__cta{display:flex;align-items:center;justify-content:center;gap:1rem;
+  height:5.6rem;border-radius:var(--r-btn);background:var(--ap-teal);color:#fff;
+  font-size:1.8rem;font-weight:600;transition:background var(--t)}
+.drawer__cta:active{background:var(--ap-teal-hover)}
+.drawer__cta svg{width:2rem;height:2rem;flex:0 0 auto}
+
+/* ---- breakpoints ---- */
+@media (max-width:1080px){
+  .mega--solutions .mega__in{grid-template-columns:repeat(2,1fr)}
+  .mega--products .mega__in{max-width:none}
+}
+@media (max-width:992px){
+  :root{--header-h:6.6rem}
+  .nav{display:none}
+  .burger{display:flex}
+  .cta{height:4.2rem;padding:0 1.9rem;font-size:1.5rem}
+}
+@media (min-width:993px){.drawer{display:none}}
+@media (max-width:560px){
+  .hdr__logo img{width:100px}
+  :root{--wrap:1.6rem}
+}
+@media (max-width:400px){.cta{font-size:1.35rem;padding:0 1.5rem;height:4.4rem}}
+@media (max-width:374px){.hdr__logo img{width:84px}.hdr__right{gap:1rem}.cta{font-size:1.3rem;padding:0 1.2rem}}
+@media (max-width:339px){:root{--wrap:1.2rem}.hdr__logo img{width:76px}.hdr__right{gap:.8rem}.cta{font-size:1.2rem;padding:0 1rem;height:4rem}}
+@media (pointer:coarse){.mitem{padding-top:1.2rem;padding-bottom:1.2rem}.gitem{padding:1.2rem 0}}
+@media (min-width:1700px){
+  .mega{left:50%;right:auto;transform:translateX(-50%);width:min(100vw,148rem);
+    border:1px solid var(--hairline);border-top:0;border-radius:0 0 var(--r-lg) var(--r-lg)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
