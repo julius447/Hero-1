@@ -261,8 +261,8 @@
 
 <main>
 <section class="vb2__section">
-  <div class="vb2__frame" id="heroFrame" data-img="1">
-    <img id="heroBg" src="assets/bg-1.webp" alt="Upplyst villa i skymningen med el installerad av Ampy" fetchpriority="high">
+  <div class="vb2__frame">
+    <img src="assets/bg-1.webp" alt="Upplyst villa i skymningen med el installerad av Ampy" fetchpriority="high">
     <div class="vb2__veil" aria-hidden="true"></div>
     <div class="vb2__content">
       <h1 class="hero__h1">El i hemmet, gjort ordentligt.</h1>
@@ -291,25 +291,7 @@
 </section>
 </main>
 
-<nav class="review-switch" aria-label="Bildväxlare för A/B/C-test (ej del av designen)">
-  <span>Bild</span>
-  <a href="?img=1" data-img-link="1">1</a>
-  <a href="?img=2" data-img-link="2">2</a>
-  <a href="?img=3" data-img-link="3">3</a>
-</nav>
 
-<script>
-(function () {
-  var p = new URLSearchParams(location.search).get('img');
-  var img = (p === '2' || p === '3') ? p : '1';
-  document.getElementById('heroFrame').setAttribute('data-img', img);
-  var bg = document.getElementById('heroBg');
-  bg.src = 'assets/bg-' + img + '.webp';
-  document.querySelectorAll('[data-img-link]').forEach(function (a) {
-    if (a.getAttribute('data-img-link') === img) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
-  });
-})();
-</script>
 <script src="assets/header.js" defer></script>
 </body>
 </html>

@@ -81,6 +81,9 @@ img { max-width: 100%; display: block; }
 @media (max-width: 992px) {
   .btn-cta { align-self: flex-start; gap: 16px; padding: 15px 22px 15px 26px; font-size: 15.5px; }
 }
+@media (max-width: 560px) {
+  .btn-cta { gap: 13px; padding: 13px 19px 13px 23px; font-size: 15px; margin-top: 26px; }
+}
 
 /* ---------- shared: proof row ---------- */
 
@@ -189,14 +192,6 @@ img { max-width: 100%; display: block; }
   object-fit: cover;
   object-position: 62% 60%;
 }
-.vb2__frame[data-img="2"] > img { object-position: 50% 74%; }
-.vb2__frame[data-img="3"] > img { object-position: 58% 48%; }
-.vb2__frame[data-img="2"] .vb2__veil,
-.vb2__frame[data-img="3"] .vb2__veil {
-  background:
-    linear-gradient(98deg, rgba(9, 11, 50, 0.74) 0%, rgba(9, 11, 50, 0.54) 42%, rgba(9, 11, 50, 0.16) 68%, rgba(9, 11, 50, 0.04) 100%),
-    linear-gradient(0deg, rgba(9, 11, 50, 0.46) 0%, rgba(9, 11, 50, 0) 30%);
-}
 .vb2__veil {
   position: absolute;
   inset: 0;
@@ -213,10 +208,10 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   justify-content: center;
   padding: 0 clamp(24px, 5vw, 84px);
-  max-width: 720px;
+  max-width: 800px;
 }
 .vb2__content .hero__h1 { color: #ffffff; }
-.vb2__content .hero__sub { color: rgba(255, 255, 255, 0.92); font-weight: 400; text-shadow: 0 1px 12px rgba(9, 11, 50, 0.35); }
+.vb2__content .hero__sub { color: rgba(255, 255, 255, 0.92); font-weight: 400; max-width: none; text-shadow: 0 1px 12px rgba(9, 11, 50, 0.35); }
 .vb2__section .btn-cta { box-shadow: 0 12px 32px -10px rgba(9, 11, 50, 0.45); }
 
 .vb2__proof {
@@ -254,28 +249,39 @@ img { max-width: 100%; display: block; }
   .vb2__section { padding: 10px 10px 16px; }
   .vb2__frame {
     height: calc(100svh - var(--header-h, 6.6rem) - 26px);
-    min-height: 560px;
+    min-height: 520px;
     border-radius: 18px;
   }
+}
+
+/* ---- mid band 561-992 (stor mobil landskap / liten surfplatta): tempererad desktop-komposition ---- */
+@media (min-width: 561px) and (max-width: 992px) {
+  .vb2__content {
+    justify-content: center;
+    padding: 0 clamp(30px, 6vw, 60px);
+    max-width: 640px;
+  }
+  .hero__h1 { font-size: clamp(38px, 6.2vw, 50px); }
+  .hero__sub { font-size: clamp(16px, 2.3vw, 19px); }
+  .vb2__proof { right: 24px; bottom: 20px; }
+}
+
+/* ---- true mobile <=560: Evify-mönstret ---- */
+@media (max-width: 560px) {
   .vb2__frame > img { object-position: 66% 62%; }
   .vb2__veil {
     background:
-      linear-gradient(180deg, rgba(9, 11, 50, 0.30) 0%, rgba(9, 11, 50, 0.12) 30%, rgba(9, 11, 50, 0.14) 55%, rgba(9, 11, 50, 0.62) 100%),
+      linear-gradient(180deg, rgba(9, 11, 50, 0.30) 0%, rgba(9, 11, 50, 0.12) 34%, rgba(9, 11, 50, 0.14) 55%, rgba(9, 11, 50, 0.62) 100%),
       linear-gradient(98deg, rgba(9, 11, 50, 0.30) 0%, rgba(9, 11, 50, 0.05) 60%);
   }
   .vb2__content {
     justify-content: flex-start;
-    padding-top: 16vh;
+    padding: 15vh 24px 0;
     max-width: none;
+    height: 100%;
   }
-  .vb2__frame[data-img="2"] .vb2__veil,
-  .vb2__frame[data-img="3"] .vb2__veil {
-    background:
-      linear-gradient(180deg, rgba(9, 11, 50, 0.46) 0%, rgba(9, 11, 50, 0.30) 34%, rgba(9, 11, 50, 0.20) 55%, rgba(9, 11, 50, 0.66) 100%),
-      linear-gradient(98deg, rgba(9, 11, 50, 0.30) 0%, rgba(9, 11, 50, 0.08) 60%);
-  }
-  .vb2__frame[data-img="2"] > img { object-position: 50% 80%; }
-  .vb2__frame[data-img="3"] > img { object-position: 52% 52%; }
+  .hero__h1 { font-size: 36px; }
+  .hero__sub { font-size: 15.5px; line-height: 1.55; margin-top: 14px; }
   .vb2__proof {
     right: auto;
     left: 24px;
