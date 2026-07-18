@@ -20,3 +20,9 @@ Live: **https://julius447.github.io/Hero-1/**
 - Ny mitt-breakpoint 561–992: centrerad tempererad komposition (fixar 550–853-bandet + 414 verifierad).
 - bg-1 ombyggd: 2-pass-skärpa + mikrokontrast + filmkorn (dödar banding/mjukhet) + webp q92.
 - Verifierad radräkning + overflow: 1440/1280 = 2 rader · 768/853/650 rena · 414/375 = 3 rader.
+
+## Handover (ägargodkänd — FÄRDIG)
+Komplett Chris-paket i [`delivery/`](delivery/) (spegling av "Hero-1 Documentation" på skrivbordet):
+`hero-1-bricks.json` (paste-in-Bricks, ACF-taggad) · `hero-1.css` (scopad .ampy-hero1, px) ·
+`hero-1.html` · `hero-1.php` ([ampy_hero1]-shortcode, php -l ren) · `assets/hero-1-bg.webp` ·
+`preview/index.html` (parity-render by reference). Se `delivery/README.md` för installation + QA.
