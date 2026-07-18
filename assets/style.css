@@ -244,7 +244,7 @@ img { max-width: 100%; display: block; }
 .vb2__proof .g-label { white-space: nowrap; }
 .vb2__proof .g-label strong { font-weight: 700; }
 .vb2__proof .g-row:hover .g-label { text-decoration: underline; }
-.vb2__proof .stars { display: inline-flex; gap: 2.5px; margin-left: 2px; }
+.vb2__proof .stars { display: inline-flex; gap: 2.5px; }
 .vb2__proof .stars svg { width: 13.5px; height: 13.5px; fill: #ffffff; display: block; }
 .vb2__proof .sep { width: 1px; height: 15px; background: rgba(255, 255, 255, 0.45); }
 .vb2__proof .vol { white-space: nowrap; }
@@ -285,7 +285,7 @@ img { max-width: 100%; display: block; }
     gap: 9px;
     font-size: 13.5px;
   }
-  .vb2__proof .sep { width: 26px; height: 1px; background: rgba(255, 255, 255, 0.28); }
+  .vb2__proof .sep { width: 26px; height: 1px; background: rgba(255, 255, 255, 0.38); }
   .vb2__proof .vol { opacity: 0.92; }
 }
 
@@ -293,6 +293,11 @@ img { max-width: 100%; display: block; }
 @media (min-width: 993px) and (max-width: 1200px) {
   .vb2__content { max-width: 640px; }
   .hero__h1 { font-size: clamp(40px, 5vw, 52px); }
+  .vb2__veil {
+    background:
+      linear-gradient(98deg, rgba(9, 11, 50, 0.68) 0%, rgba(9, 11, 50, 0.52) 42%, rgba(9, 11, 50, 0.12) 66%, rgba(9, 11, 50, 0.02) 100%),
+      linear-gradient(0deg, rgba(9, 11, 50, 0.38) 0%, rgba(9, 11, 50, 0) 26%);
+  }
 }
 
 /* ============================================================
