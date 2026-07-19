@@ -27,7 +27,7 @@
 
 - **H1:** `Elinstallationer i hemmet,<br> gjort ordentligt.` (LÅST; `<br>` = medveten 2-radersbrytning på desktop, döljs på mobil via CSS)
 - **Lead:** `Våra egna behöriga elektriker hjälper dig i hela Sverige, med allt från elfel och elcentraler till laddbox och batterilagring.`
-- **CTA:** `Kostnadsfri offert` → `/offert/` (kanonisk design från repo `julius447/CTA-website` → `offert-cta/`)
+- **CTA:** `Kostnadsfri rådgivning` → `/kontakt/` (kanonisk design från repo `julius447/CTA-website` → `offert-cta/`)
 - **Trust:** `5,0 på Google` (länkad till Google Maps-listningen — owner-confirmed URL) + 5 stjärnor + `|` + `Över 3 000 installationer per år`
 
 ## Konfig-knoppar (de ENDA värden som får röras)
@@ -68,5 +68,5 @@
   (Lanczos + korn) och godkänd; 4K-filen byts rakt av på samma URL när krediter finns.
 
 ## Ändringslogg
-- **r6 (2026-07-19):** H1 → "Elinstallationer i hemmet, gjort ordentligt." (tydligare elfirma; desktop-`<br>`, bredare textkolumn 880px, tablet-band 720/46px). CTA → "Kostnadsfri offert" → /offert/, adopterar kanonisk design från `julius447/CTA-website` (`offert-cta/`). Google-länk → riktig Maps-URL (target=_blank). Parity-verifierad mot prototypen (headless 1440).
+- **r6 (2026-07-19):** H1 → "Elinstallationer i hemmet, gjort ordentligt." (tydligare elfirma; desktop-`<br>`, bredare textkolumn 880px, tablet-band 720/46px). CTA → "Kostnadsfri rådgivning" → /kontakt/, adopterar kanonisk design från `julius447/CTA-website` (`offert-cta/`). Google-länk → riktig Maps-URL (target=_blank). Parity-verifierad mot prototypen (headless 1440).
 - **r5.1 (2026-07-18):** ägargodkänd slutversion ("PERFEKTION"). Se `julius447/Hero-1` historik.

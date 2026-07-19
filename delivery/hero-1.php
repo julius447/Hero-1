@@ -46,8 +46,8 @@ add_shortcode( 'ampy_hero1', function () {
     <div class="ampy-hero1__content">
       <h1 class="ampy-hero1__title"><?php echo wp_kses( $heading, array( 'br' => array() ) ); ?></h1>
       <p class="ampy-hero1__lead"><?php echo esc_html( $lead ); ?></p>
-      <a class="ampy-hero1__cta" href="<?php echo esc_url( home_url( '/offert/' ) ); ?>">
-        Kostnadsfri offert
+      <a class="ampy-hero1__cta" href="<?php echo esc_url( home_url( '/kontakt/' ) ); ?>">
+        Kostnadsfri rådgivning
         <svg class="pil" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.7 11.3 11.3 4.7M11.3 4.7H4.7M11.3 4.7v6.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
