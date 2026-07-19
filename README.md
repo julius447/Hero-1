@@ -26,3 +26,9 @@ Komplett Chris-paket i [`delivery/`](delivery/) (spegling av "Hero-1 Documentati
 `hero-1-bricks.json` (paste-in-Bricks, ACF-taggad) · `hero-1.css` (scopad .ampy-hero1, px) ·
 `hero-1.html` · `hero-1.php` ([ampy_hero1]-shortcode, php -l ren) · `assets/hero-1-bg.webp` ·
 `preview/index.html` (parity-render by reference). Se `delivery/README.md` för installation + QA.
+
+## r6 (ägarändringar 2026-07-19)
+- **H1** → "Elinstallationer i hemmet, gjort ordentligt." (tydligare elfirma). Desktop: explicit `<br>` efter "hemmet," (aktiv ≥993, gömd på mobil → naturlig wrap) + content-bredd 800→880px så 2-radersbrytningen håller. Tablet-band 993–1200 justerat (720px/46px).
+- **CTA** → "Kostnadsfri offert" → /offert/, adopterar den kanoniska CTA-designen från repo `julius447/CTA-website` (radgivning-cta-mönstret: 120°-gradient, mjuk navy-text hsl(237 35% 24%), inset-highlight + grön glow-skugga, pil skalar 1.18 vid hover).
+- **Google-länk** → riktig Maps-URL (place/Ampy), target=_blank rel=noopener.
+Verifierat 1440/1024/375.
