@@ -28,10 +28,12 @@ add_shortcode( 'ampy_hero1', function () {
 	$rating  = function_exists( 'get_field' ) ? get_field( 'google_rating' ) : '';
 	$gurl    = function_exists( 'get_field' ) ? get_field( 'google_business_profile_url' ) : '';
 
-	$heading = $heading ? $heading : 'El i hemmet, gjort ordentligt.';
+	// Rubriken är LÅST och innehåller ett medvetet <br> (2-radig desktop, döljs på mobil via CSS).
+	$heading = $heading ? $heading : 'Elinstallationer i hemmet,<br> gjort ordentligt.';
 	$lead    = $lead ? $lead : 'Våra egna behöriga elektriker hjälper dig i hela Sverige, med allt från elfel och elcentraler till laddbox och batterilagring.';
 	$rating  = $rating ? $rating : '5,0';
-	$gurl    = $gurl ? $gurl : 'https://ampy.se/omdomen/';
+	// Google-recensioner (owner-confirmed Maps-URL 2026-07-19).
+	$gurl    = $gurl ? $gurl : 'https://www.google.com/maps/place/Ampy/@59.3576299,17.9842061,17z/data=!3m1!4b1!4m6!3m5!1s0x2bec1ce5c4ed9ce9:0xfce1752e84a1bfee!8m2!3d59.3576272!4d17.986781!16s%2Fg%2F11ypjy9rrm';
 
 	$star = '<svg viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21l1.2-6.9-5-4.9 6.9-1z"/></svg>';
 
@@ -42,11 +44,11 @@ add_shortcode( 'ampy_hero1', function () {
     <img src="<?php echo esc_url( AMPY_HERO1_IMG ); ?>" alt="Upplyst villa i skymningen med el installerad av Ampy" fetchpriority="high" loading="eager">
     <div class="ampy-hero1__veil" aria-hidden="true"></div>
     <div class="ampy-hero1__content">
-      <h1 class="ampy-hero1__title"><?php echo esc_html( $heading ); ?></h1>
+      <h1 class="ampy-hero1__title"><?php echo wp_kses( $heading, array( 'br' => array() ) ); ?></h1>
       <p class="ampy-hero1__lead"><?php echo esc_html( $lead ); ?></p>
-      <a class="ampy-hero1__cta" href="<?php echo esc_url( home_url( '/kontakt/' ) ); ?>">
-        Kostnadsfri rådgivning
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <a class="ampy-hero1__cta" href="<?php echo esc_url( home_url( '/offert/' ) ); ?>">
+        Kostnadsfri offert
+        <svg class="pil" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.7 11.3 11.3 4.7M11.3 4.7H4.7M11.3 4.7v6.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
     <div class="ampy-hero1__proof">
