@@ -1,5 +1,5 @@
 /* ============================================================================
-   Ampy — Hero 1 "El i hemmet, gjort ordentligt." (startsidans section 1)
+   Ampy — Hero 1 "Elinstallationer i hemmet, gjort ordentligt." (startsidans section 1)
    FluentSnippets: lägg som CSS-snippet (eller i Bricks Code-elementets CSS-pane
    — hero-1-bricks.json bär redan exakt denna CSS i cssCode).
 
@@ -85,9 +85,9 @@
 /* neutralisera auto-länkade ord som tema/plugins kan injicera i leaden */
 .ampy-hero1 .ampy-hero1__lead *{color:inherit;text-decoration:none;}
 
-/* ---- den ENDA CTA:n — kanonisk "Kostnadsfri offert" från repo julius447/CTA-website
-   (offert-cta / radgivning-cta-mönstret: 120° mint→stål-gradient, mjuk navy-text,
-   inset-highlight + grön glow, pil skalar 1.18 vid hover). Heron ärver library-CTA:n. ---- */
+/* ---- den ENDA CTA:n — kanonisk "Kostnadsfri rådgivning" från repo julius447/CTA-website
+   (radgivning-cta-mönstret: 120° mint→stål-gradient, mjuk navy-text, inset-highlight
+   + grön glow, pil skalar 1.18 vid hover). Heron ärver library-CTA:n; länk → /kontakt/. ---- */
 .ampy-hero1__cta{
   display:inline-flex;align-items:center;align-self:flex-start;
   gap:16px;margin-top:32px;min-height:58px;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Ampy — Hero 1 "El i hemmet, gjort ordentligt." (startsidans section 1)
+ * Ampy — Hero 1 "Elinstallationer i hemmet, gjort ordentligt." (startsidans section 1)
  * FluentSnippets: lägg som PHP-snippet (Run everywhere). Ger shortcoden:
  *
  *     [ampy_hero1]
